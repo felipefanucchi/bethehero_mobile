@@ -30,9 +30,9 @@ export default function Incidents() {
       params: { page }
     });
 
-    setIncidents([...incidents, ...response.data.items]);
+    setIncidents([...incidents, ...response.data]);
     setPage(page + 1);
-    setTotal(response.data.total);
+    setTotal(response.headers['x-total-count']);
 
     setTimeout(() => {
       setLoading(false);
